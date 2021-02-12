@@ -1,5 +1,5 @@
 # Recyclone
-- A comprehensive API allowing collect and distribute locations of nearest recycling bin
+- A comprehensive API allowing to collect and distribute locations of recycling bins and basic information about them
 - Project is in active development until May, 2021
 
 ## Current Stage
