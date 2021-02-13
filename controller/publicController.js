@@ -10,11 +10,11 @@ const { query } = require('express')
 */
 module.exports.getBinsAround = async (req, res) => {
     // Queried location is represented in tuple-like form
-    if (!req.query.length) {
+    if (!req.query) {
         this.publicErrorHandler(0, req, res);
     } else {
         var geolocation = req.query.geo.split(',');
-        geolocation.every(n,i => {
+        geolocation.every((n, i) => {
         if(Number(n) === NaN) {
             geolocation = [];
             return false;
@@ -25,7 +25,7 @@ module.exports.getBinsAround = async (req, res) => {
         })
         var radius = parseFloat(req.query.rad);
         if(geolocation.length != 2 || !radius 
-            || radius <= 0 || 100 <= radius) {
+            || radius <= 0 || 100 < radius) {
             this.publicErrorHandler(0, req, res);
         } else {
             /* 
@@ -36,10 +36,8 @@ module.exports.getBinsAround = async (req, res) => {
             var bins = await Bin.find({})
             console.log(typeof bins)
             bins = bins.filter(bin => {
-                console.log(distance(geolocation[0], geolocation[1], bin.latitude, bin.longitude))
-                distance(geolocation[0], geolocation[1], bin.latitude, bin.longitude) < radius
+                return distance(geolocation[0], geolocation[1], bin.latitude, bin.longitude) < radius
             })
-            console.log(bins)
             res.status(200).json(bins)
         }
     }
