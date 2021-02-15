@@ -7,8 +7,8 @@ const mongoose = require('mongoose')
 const binSchema = new mongoose.Schema({
     latitude: {type: Number, required: true},
     longitude: {type: Number, required: true},
-    binType: {type: String, required: true},
-    binColor: {type: String, required: true},
+    type: {type: String, required: true},
+    color: {type: String, required: true},
     pickupRequests: {type: Number, required: false, default: 0},
 })
 
