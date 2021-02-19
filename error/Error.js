@@ -5,7 +5,7 @@ class Error {
         this.path = req.originalUrl;
     }
     toString() {
-        return `ERROR (${this.code}): ${this.message} ||| PATH: ${this.path}`
+        return `STATUS (${this.code}): ${this.message} ||| RESOURCE: ${this.path}`
     }
 }
 

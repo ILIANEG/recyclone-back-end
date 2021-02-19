@@ -4,7 +4,8 @@ const validatorHelpers = require('./validatorHelpers');
 
 // Check addBin request validity
 module.exports.addBinValidator = (req, res, next) => {
-    const bin = req.body.json();
+    console.log(req.body)
+    var bin = req.body
     if (!bin.latitude || !bin.longitude || !bin.type
     || !bin.color) {
         errorHandler.APIerror(new Error(400, 'form has insufficient data', req), req, res);

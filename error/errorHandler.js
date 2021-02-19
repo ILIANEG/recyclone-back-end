@@ -13,7 +13,8 @@ module.exports.APIerror = (err, req, res, next) => {
     }
 }
 
-module.exports.generic404 = (err, req, res, next) => {
+module.exports.generic404 = (req, res, next) => {
     const error = new Error(404, 'resource not found', req);
-    res.status(404).json(error.toString);
+    console.log(error)
+    res.status(404).json(error.toString());
 }

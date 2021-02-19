@@ -19,14 +19,14 @@ module.exports.getBinsAround = async (req, res) => {
     }
     var bins = await Bin.find({})
     bins = bins.filter(bin => {
+        console.log(distance(params.lat, params.long, bin.latitude, bin.longitude))
         return distance(params.lat, params.long, bin.latitude, bin.longitude) < searchRad
     })
     res.status(200).json(bins)  
 }
 
 module.exports.addBin = async (req, res) => {
-    const binToAdd = req.body.json()
-    console.log(binToAdd)
+    const binToAdd = req.body
     const newBin = await new Bin(binToAdd).save()
     res.status(200).json({id: newBin.id})
 }
