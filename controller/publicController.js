@@ -13,7 +13,7 @@ module.exports.getBinsAround = async (req, res) => {
     * batch of bins will be filtered
     */
     const params = req.query
-    var searchRad = req.query.radius;
+    var searchRad = req.query.rad;
     if (!searchRad) {
         searchRad = 1;
     }
