@@ -1,4 +1,4 @@
-const {Bin} = require('../model/Model')
+const {Bin} = require('../model/Bin')
 const {distance} = require('../misc/haversine')
 
 /*
